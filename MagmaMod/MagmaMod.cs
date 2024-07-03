@@ -24,7 +24,14 @@ namespace MagmaMod
                 gameObject = new GameObject();
                 c = gameObject.AddComponent<Circle>();
             }
+            else
+            {
+                Object.Destroy(c);
+                Object.Destroy(gameObject);
+            }
 
         }
+
+        public override string GetVersion() => "1.0";
     }
 }

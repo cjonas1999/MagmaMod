@@ -9,9 +9,12 @@ namespace MagmaMod
     {
         private float LineWidth => Math.Max(0.7f, Screen.width / 960f * GameCameras.instance.tk2dCam.ZoomFactor);
         GameObject centerObject;
+        GameObject knight;
 
         public void Awake()
         {
+            knight = HeroController.instance.gameObject;
+
             GameObject dog_bug = UnityEngine.GameObject.Find("Crystallised Lazer Bug (5)");
             if (dog_bug != null)
             {
@@ -26,6 +29,11 @@ namespace MagmaMod
 
         public void OnGUI()
         {
+            if (Event.current?.type != EventType.Repaint || GameManager.instance.isPaused || Camera.main == null)
+            {
+                return;
+            }
+
             Camera camera = Camera.main;
             GUI.depth = 1;
             int radius = 28;
@@ -39,13 +47,20 @@ namespace MagmaMod
             Vector2 right_point = new Vector2((int)Math.Round(right_screen_point.x), (int)Math.Round(Screen.height - right_screen_point.y));
 
             int radius_screen = (int)Math.Round(Vector2.Distance(center_point, right_point));
-           /*
-            Modding.Logger.Log($"buggy X:{obj_center.x} Y:{obj_center.y}");
-            Modding.Logger.Log($"end center X:{center_point.x} Y:{center_point.y}");
-            Modding.Logger.Log($"end radius {radius_screen}");
-           */
+            /*
+             Modding.Logger.Log($"buggy X:{obj_center.x} Y:{obj_center.y}");
+             Modding.Logger.Log($"end center X:{center_point.x} Y:{center_point.y}");
+             Modding.Logger.Log($"end radius {radius_screen}");
+            */
 
-            Drawing.DrawCircle(center_point, radius_screen, Color.cyan, LineWidth, true, 32);
+            Color color = Color.cyan;
+
+            if (Vector2.Distance(knight.gameObject.transform.position, obj_center) <= 28)
+            {
+                color = Color.red;
+            }
+
+            Drawing.DrawCircle(center_point, radius_screen, color, LineWidth, true, 32);
         }
 
     }

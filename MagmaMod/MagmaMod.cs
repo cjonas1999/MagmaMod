@@ -19,8 +19,6 @@ namespace MagmaMod
 
             if (scene_name == "Mines_05")
             {
-                Modding.Logger.Log("In the mines");
-
                 gameObject = new GameObject();
                 c = gameObject.AddComponent<Circle>();
             }

@@ -21,7 +21,7 @@ namespace MagmaMod
                 float X = dog_bug.transform.GetPositionX();
                 float Y = dog_bug.transform.GetPositionY();
 
-                Modding.Logger.Log($"Initial buggy X:{X} Y:{Y}");
+                //Modding.Logger.Log($"Initial buggy X:{X} Y:{Y}");
 
                 centerObject = dog_bug;
             }

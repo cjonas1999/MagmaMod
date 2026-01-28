@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using DebugMod.Hitbox;
 using System;
 using UnityEngine.Analytics;
 
@@ -62,6 +61,5 @@ namespace MagmaMod
 
             Drawing.DrawCircle(center_point, radius_screen, color, LineWidth, true, 32);
         }
-
     }
 }

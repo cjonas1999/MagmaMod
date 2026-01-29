@@ -14,6 +14,7 @@ using System.IO;
 namespace MagmaMod {
     public class ConfigManager: MonoBehaviour {
 
+        // https://docs.unity3d.com/6000.3/Documentation/ScriptReference/KeyCode.html
         public KeyCode toggle_key = KeyCode.None;
         public bool is_enabled = false;
 
@@ -24,8 +25,7 @@ namespace MagmaMod {
             Directory.CreateDirectory(config_path);
 
             string config_file = config_path + "/config.txt";
-            // https://docs.unity3d.com/6000.3/Documentation/ScriptReference/KeyCode.html
-
+            
             if (File.Exists(config_file)) {
                 using (TextReader reader = File.OpenText(config_file)) {
                     toggle_key = (KeyCode)Enum.Parse(typeof(KeyCode), reader.ReadLine());

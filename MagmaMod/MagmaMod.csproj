@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="ConfigManager.cs" />
     <Compile Include="Drawing.cs" />
     <Compile Include="MagmaMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
